@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .quote-container {
+            background-color: #333;
+            color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 500px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .quote {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .author {
+            font-size: 18px;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        button {
+            background-color: #61dafb;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #21a1f1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="quote-container">
+        <div id="quote" class="quote">"Click the button to get inspired!"</div>
+        <div id="author" class="author">- Unknown</div>
+        <button onclick="generateQuote()">Get New Quote</button>
+    </div>
+
+    <script>
+        const quotes = [
+            { quote: "The best way to predict the future is to create it.", author: "Peter Drucker" },
+            { quote: "Life is 10% what happens to us and 90% how we react to it.", author: "Charles R. Swindoll" },
+            { quote: "Your time is limited, so don’t waste it living someone else’s life.", author: "Steve Jobs" },
+            { quote: "The purpose of our lives is to be happy.", author: "Dalai Lama" },
+            { quote: "Get busy living or get busy dying.", author: "Stephen King" },
+            { quote: "You only live once, but if you do it right, once is enough.", author: "Mae West" },
+            { quote: "Many of life’s failures are people who did not realize how close they were to success when they gave up.", author: "Thomas A. Edison" },
+        ];
+
+        function generateQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            const randomQuote = quotes[randomIndex];
+
+            document.getElementById("quote").textContent = `"${randomQuote.quote}"`;
+            document.getElementById("author").textContent = `- ${randomQuote.author}`;
+        }
+    </script>
+
+</body>
+</html>
